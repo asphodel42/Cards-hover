@@ -1,0 +1,97 @@
+*{
+    margin: 0;
+    padding: 0;
+
+}
+
+.cards-page {
+    height: 100vh;
+    width: 100vw;
+    background: black;
+    position: fixed;
+}
+
+.cards{
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5vw;
+}
+
+.animated-card1, .animated-card2{
+    display: grid;
+    place-items: center;
+    position: relative;
+    height: 500px;
+    width: 350px;
+    background: #222;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.animated-card2{
+    overflow: hidden;
+}
+
+.card-img{
+    color: rgba(254, 254, 254, 0.1);
+    font-size: 10em;
+    z-index: 1;
+}
+
+/*~~~ First card animation ~~~*/
+
+.animated-card1::before{
+    position: absolute;
+    content: '';
+    height: 500px;
+    width: 350px;
+    background-color: tomato;
+    border-radius: 15px;
+    z-index: -1;
+    transition: 0.3s;
+}
+
+.animated-card1:hover::before{
+    animation: animate 2s linear infinite;
+    height: 512px;
+    width: 362px;
+}
+
+@keyframes animate{
+    50%{
+        filter: hue-rotate(300deg);
+    }
+}
+
+/*~~~ Secon card animation ~~~*/
+
+.animated-card2::before{
+    position: absolute;
+    content: '';
+    width: 50%;
+    height: 180%;
+    background-color: #fff;
+    transform: rotate(45deg);
+}
+
+.animated-card2:hover::before{
+    animation: animate2 1.5s linear infinite;
+}
+
+@keyframes animate2{
+    from{
+        transform: rotate(45deg);
+    }
+    to{
+        transform: rotate(405deg);
+    }
+}
+
+.animated-card2::after{
+    position: absolute;
+    content: '';
+    inset: 5px;
+    background: #222;
+}
